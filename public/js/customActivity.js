@@ -48,7 +48,7 @@ define(['postmonger'], function (Postmonger) {
      */
     function save() {
         
-        payload['metaData'].isConfigured = true;
+     
         
         payload.config = {
             DataToSend: $('#dataToSend').val(),
