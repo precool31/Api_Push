@@ -4,16 +4,15 @@
     {
         "icon": "images/icon.png",
         "iconSmall": "images/iconSmall.png",
-        "category": "<CATEGORY_OF_APP_BASED_ON_DOCS>"
+        "category": "custom"
     },
 
     "type": "REST",
     "lang":
     {
-        "en-US":
-        {
-            "name": "<NAME_OF_APP>",
-            "description": "<DESC_OF_APP>",
+        "en-US": {
+            "name": "Push Data to External Endpoint",
+            "description": "Activity to push data directly from UI to an external endpoint.",
             "step1Label": "Configure Activity"
         }
     },
@@ -22,15 +21,26 @@
         "execute":
         {
             "inArguments": [
-              { 
-                "SAMPLE_PARAM": "SAMPLE PARAM DATA FROM CONFIG.JSON"
-              }
+              {
+                    "name": "DataToSend",
+                    "type": "string",
+                    "description": "The data you want to send to the external endpoint."
+                },
+                {
+                    "name": "ExternalEndpointUrl",
+                    "type": "string",
+                    "description": "The URL of the external endpoint where data will be pushed."
+                }
             ],
             "outArguments": [],
-            "url": "<HTTPS_URL_OF_APP>/journeybuilder/execute",
+            "url": "https://api-push.vercel.app/execute",
             "verb": "POST",
-            "body": "",
-            "header": "",
+            "body": {
+                "data": "{{DataToSend}}"
+            },
+            "header": {
+                "Content-Type": "application/json"
+            },
             "format": "json",
             "useJwt": true,
             "timeout": 10000
@@ -39,32 +49,34 @@
     
     "configurationArguments":
     {
-        "applicationExtensionKey": "<APP EXTENSION KEY>",
         "save":
         {
-            "url": "<HTTPS_URL_OF_APP>/journeybuilder/save",
+            "url": "https://api-push.vercel.app/save",
             "verb": "POST",
             "useJwt": true
         },
         "publish":
         {
-            "url": "<HTTPS_URL_OF_APP>/journeybuilder/publish",
+            "url": "https://api-push.vercel.app/publish",
             "verb": "POST",
             "useJwt": true
         },
         "stop":
         {
-            "url": "<HTTPS_URL_OF_APP>/journeybuilder/stop",
+            "url": "https://api-push.vercel.app/stop",
             "verb": "POST",
             "useJwt": true
         },
         "validate":
         {
-            "url": "<HTTPS_URL_OF_APP>/journeybuilder/validate",
+            "url": "https://api-push.vercel.app/validate",
             "verb": "POST",
             "useJwt": true
         }
     },
+    "wizardSteps": [
+        { "label": "Configure Activity", "key": "step1" }
+    ],
     "userInterfaces":
     {
         "configModal": {
@@ -77,7 +89,18 @@
     {
         "arguments":{
             "execute": {
-                "inArguments": [],
+               "inArguments": [
+                    {
+                        "name": "DataToSend",
+                        "type": "string",
+                        "description": "The data you want to send to the external endpoint."
+                    },
+                    {
+                        "name": "ExternalEndpointUrl",
+                        "type": "string",
+                        "description": "The URL of the external endpoint where data will be pushed."
+                    }
+                ],
                 "outArguments": []
             }
         }
