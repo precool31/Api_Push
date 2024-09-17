@@ -33,7 +33,7 @@
                 }
             ],
             "outArguments": [],
-            "url": "https://api-push.vercel.app/execute",
+            "url": "https://api-push-precool31s-projects.vercel.app/execute",
             "verb": "POST",
             "body": {
                 "data": "{{DataToSend}}"
@@ -51,25 +51,25 @@
     {
         "save":
         {
-            "url": "https://api-push.vercel.app/save",
+            "url": "https://api-push-precool31s-projects.vercel.app/save",
             "verb": "POST",
             "useJwt": true
         },
         "publish":
         {
-            "url": "https://api-push.vercel.app/publish",
+            "url": "https://api-push-precool31s-projects.vercel.app/publish",
             "verb": "POST",
             "useJwt": true
         },
         "stop":
         {
-            "url": "https://api-push.vercel.app/stop",
+            "url": "https://api-push-precool31s-projects.vercel.app/stop",
             "verb": "POST",
             "useJwt": true
         },
         "validate":
         {
-            "url": "https://api-push.vercel.app/validate",
+            "url": "https://api-push-precool31s-projects.vercel.app/validate",
             "verb": "POST",
             "useJwt": true
         }
