@@ -39,8 +39,7 @@ define(['postmonger'], function (Postmonger) {
             $('#dataToSend').val(payload.config.DataToSend || '');
             $('#externalEndpointUrl').val(payload.config.ExternalEndpointUrl || '');
         }
-        initialLoad(data);
-        parseEventSchema();
+      
     }
 
     /**
