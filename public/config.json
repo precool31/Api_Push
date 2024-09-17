@@ -1,0 +1,108 @@
+{
+    "workflowApiVersion": "1.1",
+    "metaData":
+    {
+        "icon": "images/icon.png",
+        "iconSmall": "images/iconSmall.png",
+        "category": "custom"
+    },
+
+    "type": "REST",
+    "lang":
+    {
+        "en-US": {
+            "name": "Push Data to External Endpoint",
+            "description": "Activity to push data directly from UI to an external endpoint.",
+            "step1Label": "Configure Activity"
+        }
+    },
+    "arguments":
+    {
+        "execute":
+        {
+            "inArguments": [
+              {
+                    "name": "DataToSend",
+                    "type": "string",
+                    "description": "The data you want to send to the external endpoint."
+                },
+                {
+                    "name": "ExternalEndpointUrl",
+                    "type": "string",
+                    "description": "The URL of the external endpoint where data will be pushed."
+                }
+            ],
+            "outArguments": [],
+            "url": "https://api-push.vercel.app/execute",
+            "verb": "POST",
+            "body": {
+                "data": "{{DataToSend}}"
+            },
+            "header": {
+                "Content-Type": "application/json"
+            },
+            "format": "json",
+            "useJwt": true,
+            "timeout": 10000
+        }
+    },
+    
+    "configurationArguments":
+    {
+        "save":
+        {
+            "url": "https://api-push.vercel.app/save",
+            "verb": "POST",
+            "useJwt": true
+        },
+        "publish":
+        {
+            "url": "https://api-push.vercel.app/publish",
+            "verb": "POST",
+            "useJwt": true
+        },
+        "stop":
+        {
+            "url": "https://api-push.vercel.app/stop",
+            "verb": "POST",
+            "useJwt": true
+        },
+        "validate":
+        {
+            "url": "https://api-push.vercel.app/validate",
+            "verb": "POST",
+            "useJwt": true
+        }
+    },
+    "wizardSteps": [
+        { "label": "Configure Activity", "key": "step1" }
+    ],
+    "userInterfaces":
+    {
+        "configModal": {
+            "height": 700,
+            "width": 1000,
+            "fullscreen": false
+        }
+    },
+    "schema": 
+    {
+        "arguments":{
+            "execute": {
+               "inArguments": [
+                    {
+                        "name": "DataToSend",
+                        "type": "string",
+                        "description": "The data you want to send to the external endpoint."
+                    },
+                    {
+                        "name": "ExternalEndpointUrl",
+                        "type": "string",
+                        "description": "The URL of the external endpoint where data will be pushed."
+                    }
+                ],
+                "outArguments": []
+            }
+        }
+    }
+}
