@@ -21,23 +21,14 @@
         "execute":
         {
             "inArguments": [
-              {
-                    "name": "DataToSend",
-                    "type": "string",
-                    "description": "The data you want to send to the external endpoint."
-                },
-                {
-                    "name": "ExternalEndpointUrl",
-                    "type": "string",
-                    "description": "The URL of the external endpoint where data will be pushed."
-                }
+              {"contactKey":"{{Contact.Key}}"},
+				{"FirstName":"{{Contact.Attribute.JourneyEntrySource.FirstName}}"},
+				{"LastName":"{{Contact.Attribute.JourneyEntrySource.LastName}}"}
             ],
             "outArguments": [],
             "url": "https://api-push-precool31s-projects.vercel.app/execute",
             "verb": "POST",
-            "body": {
-                "data": "{{DataToSend}}"
-            },
+            "body": "",
             "header": {
                 "Content-Type": "application/json"
             },
@@ -49,6 +40,7 @@
     
     "configurationArguments":
     {
+        
         "save":
         {
             "url": "https://api-push-precool31s-projects.vercel.app/save",
@@ -90,16 +82,27 @@
         "arguments":{
             "execute": {
                "inArguments": [
-                    {
-                        "name": "DataToSend",
-                        "type": "string",
-                        "description": "The data you want to send to the external endpoint."
-                    },
-                    {
-                        "name": "ExternalEndpointUrl",
-                        "type": "string",
-                        "description": "The URL of the external endpoint where data will be pushed."
-                    }
+                      {
+            "contactKey": {
+              "dataType": "Text",
+              "isNullable": false,
+              "direction": "in"
+            }
+          },
+          {
+            "FirstName": {
+              "dataType": "Text",
+              "isNullable": false,
+              "direction": "in"
+            }
+          },
+        {
+            "LastName": {
+              "dataType": "Text",
+              "isNullable": false,
+              "direction": "in"
+            }
+          }
                 ],
                 "outArguments": []
             }
