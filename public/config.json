@@ -20,11 +20,7 @@
     {
         "execute":
         {
-            "inArguments": [
-              {"contactKey":"{{Contact.Key}}"},
-				{"FirstName":"{{Contact.Attribute.JourneyEntrySource.FirstName}}"},
-				{"LastName":"{{Contact.Attribute.JourneyEntrySource.LastName}}"}
-            ],
+            "inArguments": [],
             "outArguments": [],
             "url": "https://api-push-precool31s-projects.vercel.app/execute",
             "verb": "POST",
@@ -81,29 +77,7 @@
     {
         "arguments":{
             "execute": {
-               "inArguments": [
-                      {
-            "contactKey": {
-              "dataType": "Text",
-              "isNullable": false,
-              "direction": "in"
-            }
-          },
-          {
-            "FirstName": {
-              "dataType": "Text",
-              "isNullable": false,
-              "direction": "in"
-            }
-          },
-        {
-            "LastName": {
-              "dataType": "Text",
-              "isNullable": false,
-              "direction": "in"
-            }
-          }
-                ],
+               "inArguments": [],
                 "outArguments": []
             }
         }
